@@ -17,10 +17,10 @@ namespace NetpayCalculator.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody]CalculateRequest request)
+        public ActionResult<CalculateResponse> Post([FromBody]CalculateRequest request)
         {
             var response = _service.CalculateNetpay(request.Frequency, request.Gross);
-            return Ok(response);
+            return response;
         }
     }
 }
